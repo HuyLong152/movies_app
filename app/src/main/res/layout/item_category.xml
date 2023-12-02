@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="18dp">
+
+    <TextView
+        android:id="@+id/btnCategory"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textSize="12dp"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:background="@drawable/item_category"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Cartoon" />
+</LinearLayout>

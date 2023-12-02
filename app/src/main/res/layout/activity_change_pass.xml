@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.ChangePassActivity"
+    android:background="@color/home_background">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="610dp"
+        android:layout_height="610dp"
+        android:src="@drawable/shape_loggin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+         />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="The Movies App"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find Your Movie"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/poppins_bold"
+        android:letterSpacing="0.1"
+        android:text="Change Password"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Old Password"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/edtPass"
+            app:layout_constraintStart_toStartOf="@+id/edtPass" />
+
+        <EditText
+            android:id="@+id/edtPass"
+            android:layout_width="314dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/insert_field"
+            android:ems="10"
+            android:fontFamily="@font/poppins"
+            android:hint="Enter your old password"
+            android:inputType="textPassword"
+            android:paddingLeft="50dp"
+
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/key"
+            app:layout_constraintBottom_toBottomOf="@+id/edtPass"
+            app:layout_constraintStart_toStartOf="@+id/edtPass"
+            app:layout_constraintTop_toTopOf="@+id/edtPass" />
+
+        <ImageView
+            android:id="@+id/iconSee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/passicon"
+            app:layout_constraintBottom_toBottomOf="@+id/edtPass"
+            app:layout_constraintEnd_toEndOf="@+id/edtPass"
+            app:layout_constraintTop_toTopOf="@+id/edtPass" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="New Password"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/edtPass2"
+            app:layout_constraintStart_toStartOf="@+id/edtPass2" />
+
+        <EditText
+            android:id="@+id/edtPass2"
+            android:layout_width="314dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/insert_field"
+            android:ems="10"
+            android:fontFamily="@font/poppins"
+            android:hint="Enter new password"
+            android:inputType="textPassword"
+            android:paddingLeft="50dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPass" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/key"
+            app:layout_constraintBottom_toBottomOf="@+id/edtPass2"
+            app:layout_constraintStart_toStartOf="@+id/edtPass2"
+            app:layout_constraintTop_toTopOf="@+id/edtPass2" />
+
+        <ImageView
+            android:id="@+id/iconSee2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/passicon"
+            app:layout_constraintBottom_toBottomOf="@+id/edtPass2"
+            app:layout_constraintEnd_toEndOf="@+id/edtPass2"
+            app:layout_constraintTop_toTopOf="@+id/edtPass2" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/changePass"
+            android:layout_width="314dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/in_out_button"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.649"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPass4" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Confirm Password"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/edtPass4"
+            app:layout_constraintStart_toStartOf="@+id/edtPass4" />
+
+        <EditText
+            android:id="@+id/edtPass4"
+            android:layout_width="314dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/insert_field"
+            android:ems="10"
+            android:fontFamily="@font/poppins"
+            android:hint="Confirm new password"
+            android:inputType="textPassword"
+            android:paddingLeft="50dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPass2" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/key"
+            app:layout_constraintBottom_toBottomOf="@+id/edtPass4"
+            app:layout_constraintStart_toStartOf="@+id/edtPass4"
+            app:layout_constraintTop_toTopOf="@+id/edtPass4" />
+
+        <ImageView
+            android:id="@+id/iconSee4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/passicon"
+            app:layout_constraintBottom_toBottomOf="@+id/edtPass4"
+            app:layout_constraintEnd_toEndOf="@+id/edtPass4"
+            app:layout_constraintTop_toTopOf="@+id/edtPass4" />
+</androidx.constraintlayout.widget.ConstraintLayout>
