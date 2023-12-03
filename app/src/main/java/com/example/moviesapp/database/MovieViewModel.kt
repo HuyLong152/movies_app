@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviesapp.Model.Category
 import com.example.moviesapp.Model.MovieNowPlaying
+import com.example.moviesapp.Model.UserComment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -49,6 +50,18 @@ class MovieViewModel(context: Context):ViewModel() {
 
     private val _listPlaying = MutableLiveData<MovieNowPlaying>()
     val listPlaying :LiveData<MovieNowPlaying> get() = _listPlaying!!
+
+    private val _listComment =MutableLiveData<UserComment>()
+    val listComment:LiveData<UserComment> get() = _listComment
+    fun getCommentById(id:Int){
+        viewModelScope.launch {
+             try{
+                _listComment.value = movieReponsitory.getCommentById(id)
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
+        }
+    }
     init{
         viewModelScope.launch {
             _listPlaying.value = movieReponsitory.getMoviePlay()

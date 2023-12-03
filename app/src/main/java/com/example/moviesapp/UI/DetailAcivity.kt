@@ -1,10 +1,12 @@
 package com.example.moviesapp.UI
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
@@ -12,9 +14,11 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.moviesapp.Account.UserFavorite
+import com.example.moviesapp.Adapter.CommentAdapter
 import com.example.moviesapp.Model.Casts
 import com.example.moviesapp.Model.DetailAMovie
 import com.example.moviesapp.Model.Videos
@@ -23,6 +27,7 @@ import com.example.moviesapp.Utils.Constrain
 import com.example.moviesapp.database.FavoriteMovie
 import com.example.moviesapp.database.MovieViewModel
 import com.example.moviesapp.databinding.ActivityDetailAcivityBinding
+import com.example.moviesapp.databinding.ActivityWatchFullBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -46,6 +51,7 @@ class DetailAcivity : AppCompatActivity() {
     lateinit var auth:FirebaseAuth
     lateinit var databaseReference:DatabaseReference
     lateinit var binding: ActivityDetailAcivityBinding
+    private var isreviewshow = false
     override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
         return super.onCreateView(name, context, attrs)
     }
@@ -103,18 +109,55 @@ class DetailAcivity : AppCompatActivity() {
         addFavoriteMovie(MovieId)
 
         getMovieTrailer(MovieId)
+        getCommentMovie(MovieId)
+    }
+
+    private fun getCommentMovie(MovieId:Int) {
+        binding.btnWatchComment.setOnClickListener{
+            isreviewshow = true
+            binding.showReview.visibility = View.VISIBLE
+            binding.outsideReview.visibility = View.VISIBLE
+            movieViewModel.getCommentById(MovieId)
+            movieViewModel.listComment.observe(this){
+                binding.rvComment.adapter = CommentAdapter(it.results)
+            }
+            binding.outsideReview.setOnClickListener{
+                binding.showReview.visibility = View.GONE
+                binding.outsideReview.visibility = View.GONE
+                isreviewshow = false
+            }
+        }
+    }
+
+    override fun onBackPressed() {
+        if(isreviewshow){
+            binding.showReview.visibility = View.GONE
+            binding.outsideReview.visibility = View.GONE
+            isreviewshow = false
+        }else{
+            super.onBackPressed()
+        }
+    }
+
+    private fun clickWatchFull(keyMovie:String) {
+        binding.iconFullVideo.setOnClickListener{
+
+            val intent = Intent(this,watch_full_activity::class.java)
+                .putExtra("MovieKey",keyMovie)
+            startActivity(intent)
+        }
     }
 
     private fun clickWatchVideo(keyMovie:String = "null") {
 
         binding.buttonTrailer.setOnClickListener {
-//            binding.videoTrailer.rotation = 90.0f
-//            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
             binding.videoTrailer.visibility = View.VISIBLE
             binding.iconCloseVideo.visibility = View.VISIBLE
+            binding.iconFullVideo.visibility = View.VISIBLE
             binding.iconCloseVideo.setOnClickListener {
                 binding.videoTrailer.visibility = View.GONE
                 binding.iconCloseVideo.visibility = View.GONE
+                binding.iconFullVideo.visibility = View.GONE
                 val webView = WebView(this)
                 binding.videoTrailer.loadUrl("about:blank")
             }
@@ -126,6 +169,7 @@ class DetailAcivity : AppCompatActivity() {
             binding.videoTrailer.webChromeClient = WebChromeClient()
 
             var videoId: String = keyMovie
+            clickWatchFull(keyMovie)
             val html = """
     <html>
         <head>

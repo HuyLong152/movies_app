@@ -7,6 +7,7 @@ import com.example.moviesapp.Model.DetailAMovie
 import com.example.moviesapp.Model.MovieByName
 import com.example.moviesapp.Model.MovieNowPlaying
 import com.example.moviesapp.Model.MoviePopular
+import com.example.moviesapp.Model.UserComment
 import com.example.moviesapp.Model.Videos
 import com.example.moviesapp.Model.listGeners
 import retrofit2.Call
@@ -40,4 +41,9 @@ interface MovieApi {
         @Path("id") id:Int,
         @Query("api_key") api_key:String = "e8f7794c71ed1ef464624c36278f4b9f"
     ):Call<Videos>
+    @GET("movie/{id}/reviews")
+    suspend fun getCommentById(
+        @Path("id") id:Int ,
+        @Query("api_key") api_key:String = "e8f7794c71ed1ef464624c36278f4b9f"
+    ):UserComment
 }

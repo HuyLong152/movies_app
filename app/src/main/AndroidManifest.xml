@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MoviesApp"
         tools:targetApi="31">
         <activity
+            android:name=".UI.watch_full_activity"
+            android:exported="false" />
+        <activity
             android:name=".UI.EditProfileActivity"
             android:exported="false" />
         <activity

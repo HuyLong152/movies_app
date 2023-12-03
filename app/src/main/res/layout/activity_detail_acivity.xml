@@ -25,7 +25,7 @@
         android:gravity="center"
         android:maxLines="3"
         android:fontFamily="@font/poppins_bold"
-        android:textColor="@color/white"
+        android:textColor="@color/icon"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -173,19 +173,27 @@ Raaj Kamal Films International. The film stars Kamal Haasan
     </HorizontalScrollView>
 
     <TextView
-        android:id="@+id/button2"
+        android:id="@+id/btnWatchComment"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:background="@drawable/item_category"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
-        android:text="Reservation"
+        android:text="Show Review"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+    <ImageView
+        android:id="@+id/outsideReview"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/background_no_color"
+        tools:layout_editor_absoluteX="123dp" />
 
     <ImageView
         android:id="@+id/iconNoFavorite"
@@ -244,6 +252,75 @@ Raaj Kamal Films International. The film stars Kamal Haasan
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/iconback"
         android:src="@drawable/baseline_close_24" />
+
+    <ImageView
+        android:id="@+id/iconFullVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/iconCloseVideo"
+        app:layout_constraintEnd_toStartOf="@+id/iconCloseVideo"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/background_back"
+        app:layout_constraintTop_toTopOf="@+id/iconCloseVideo"
+        app:srcCompat="@drawable/expand_solid" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/showReview"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:visibility="gone"
+        android:background="@drawable/background_comment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16"
+            app:srcCompat="@drawable/line" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reviews"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/sliders_solid" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="70dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView16"
+            tools:listitem="@layout/item_user_cmt" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
